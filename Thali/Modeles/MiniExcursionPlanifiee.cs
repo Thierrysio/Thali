@@ -50,6 +50,18 @@ namespace Thali.Modeles
         }
         #endregion
         #region Methodes
+        public bool estComplete()
+        {
+            bool resultat = false;
+
+            //if(this._nombreInscrits == this.GetLaMiniExcursion().GetNombrePlaces())
+            if (this.GetNombreInscrits().Equals(this.GetLaMiniExcursion().GetNombrePlaces()))
+            {
+                return true;
+            }
+
+            return resultat;
+        }
         #endregion
     }
 }

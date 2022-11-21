@@ -59,6 +59,36 @@ namespace Thali.Modeles
         }
         #endregion
         #region Methodes
+        public bool ajouteEtape(int unNumeroEtape,string uneDescription,DateTime uneDureePrevue)
+        {
+            bool resultat = false;
+            foreach(Etapes monEtape in this.GetLesEtapes()) 
+            { 
+                if(monEtape.GetNumEtape().Equals(unNumeroEtape))
+                {
+                    return resultat;
+                }
+            }
+            // Je recupere ma collection d'objets Etapes
+            // Je cree une nouvelle etape
+            // je l'ajoute à la collection
+            this.GetLesEtapes().Add(new Etapes(unNumeroEtape, uneDescription, uneDureePrevue));
+            return true;
+          
+        }
+        public double donneDureePrevue()
+        {
+            double resultat = 0;
+
+            foreach(Etapes monEtape in this.GetLesEtapes()) 
+            {
+                TimeSpan t = monEtape.GetDureePrevue().TimeOfDay;
+                resultat = t.TotalMinutes;
+            
+            }
+
+            return resultat;
+        }
         #endregion
     }
 }
