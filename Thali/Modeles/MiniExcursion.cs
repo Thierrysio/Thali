@@ -83,9 +83,20 @@ namespace Thali.Modeles
             foreach(Etapes monEtape in this.GetLesEtapes()) 
             {
                 TimeSpan t = monEtape.GetDureePrevue().TimeOfDay;
-                resultat = t.TotalMinutes;
+                resultat += t.TotalMinutes;
             
             }
+
+            return resultat;
+        }
+
+        public string donneDureeHhMm()
+        {
+            string resultat = string.Empty;
+
+            
+            TimeSpan result = TimeSpan.froFromMinutes(this.donneDureePrevue());
+            resultat= result.ToString("hh':'mm");
 
             return resultat;
         }
